@@ -1,0 +1,36 @@
+{
+  "name": "tradesight",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Local-first MM2 trade advisor and explicit-window scanner.",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "concurrently -k \"vite\" \"wait-on tcp:5173 && electron .\"",
+    "build": "vite build",
+    "start": "electron .",
+    "test": "vitest run",
+    "audit": "npm audit --omit=dev",
+    "package": "npm run build && electron-builder --dir"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "electron": "latest",
+    "lucide-react": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "xlsx": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "concurrently": "latest",
+    "electron-builder": "latest",
+    "typescript": "latest",
+    "vite": "latest",
+    "vitest": "latest",
+    "wait-on": "latest"
+  },
+  "build": {"appId":"com.tradesight.app","productName":"TradeSight","files":["dist/**","electron/**","package.json"],"asar":true}
+}
