@@ -1,0 +1,2 @@
+import{describe,it,expect}from"vitest";import{fromRows,find}from"./importer";import{evaluate}from"./scoring";
+describe("manual calculation flow",()=>{it("imports, finds an alias, then evaluates the trade",()=>{const items=fromRows([{Item:"Chroma Beachy",Category:"Chromas","Trade status":"Tradable",Value:1750,Demand:5,Aliases:"CBeachy"},{Item:"Batwing",Category:"Ancients","Trade status":"Tradable",Value:42,Demand:1}],"2026-08-13");const beachy=find(items,"cbeachy")[0];expect(evaluate([{item:items[1],quantity:1}],[{item:beachy,quantity:1}]).action).toBe("Accept")})});
